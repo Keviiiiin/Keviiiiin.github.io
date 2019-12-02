@@ -151,6 +151,128 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hexo博客搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/12/02/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">Hexo博客搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2019/12/02/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
+  	<time datetime="2019-12-02T01:15:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="入坑Hexo博客的第一天"><a href="#入坑Hexo博客的第一天" class="headerlink" title="入坑Hexo博客的第一天"></a>入坑Hexo博客的第一天</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近身边朋友推荐了一个b站up主</p>
+<p><a href="https://space.bilibili.com/384068749" target="_blank" rel="noopener">程序羊 CodeSheep</a></p>
+<p>看了几期视频发现确实干货满满，想入坑Java的小伙伴们可以多多关注，在此特别感谢羊哥！</p>
+<p>作为一个优秀的程序员，确实要养成多写博客多看博客的习惯。</p>
+<p>我的这篇博客也本着记录自己学习过程的原则，总结和回顾一下自己是如何从无到有搭建Hexo博客的。当然，本文主要以步骤轮廓为主，具体细节在下面视频中。</p>
+<p>内容来源于</p>
+<p><a href="https://www.bilibili.com/video/av44544186" target="_blank" rel="noopener">手把手教你从0开始搭建自己的个人博客 |无坑版视频教程| hexo</a></p>
+<p>平台：window10</p>
+<hr>
+<h2 id="烹饪材料"><a href="#烹饪材料" class="headerlink" title="烹饪材料"></a>烹饪材料</h2><h3 id="1-git"><a href="#1-git" class="headerlink" title="1.git"></a>1.git</h3><p>因为要把hexo部署到github(免费又好用)，git安装是必备的，此处不再赘述。</p>
+<h3 id="2-node-js"><a href="#2-node-js" class="headerlink" title="2.node.js"></a>2.node.js</h3><p>hexo框架是基于node的，我们直接从<a href="nodejs.org">nodejs.org</a>下载就好啦。</p>
+<hr>
+<h2 id="2-开始烹饪"><a href="#2-开始烹饪" class="headerlink" title="2.开始烹饪"></a>2.开始烹饪</h2><h3 id="1-安装npm和cnpm"><a href="#1-安装npm和cnpm" class="headerlink" title="1.安装npm和cnpm"></a>1.安装npm和cnpm</h3><h3 id="2-使用cnpm安装hexo"><a href="#2-使用cnpm安装hexo" class="headerlink" title="2.使用cnpm安装hexo"></a>2.使用cnpm安装hexo</h3><h3 id="3-创建一个新的本地目录"><a href="#3-创建一个新的本地目录" class="headerlink" title="3.创建一个新的本地目录"></a>3.创建一个新的本地目录</h3><p>(如：D:\iccBlog)</p>
+<h3 id="4-在这个目录下初始化"><a href="#4-在这个目录下初始化" class="headerlink" title="4.在这个目录下初始化"></a>4.在这个目录下初始化</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">hexo init [dir]</span></pre></td></tr></table></figure>
+
+<h3 id="5-初始化完成后就能在本地启动啦"><a href="#5-初始化完成后就能在本地启动啦" class="headerlink" title="5.初始化完成后就能在本地启动啦"></a>5.初始化完成后就能在本地启动啦</h3><p><a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a></p>
+<p>默认创建了一篇HelloWorld文章</p>
+<p><em>当然，只在本地访问还是不够的，接下来部署到github上</em></p>
+<h3 id="6-在github上新建一个repo-name一定要命名成"><a href="#6-在github上新建一个repo-name一定要命名成" class="headerlink" title="6.在github上新建一个repo, name一定要命名成"></a>6.在github上新建一个repo, name一定要命名成</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">你的github名称.github.io</span></pre></td></tr></table></figure>
+
+<p>原因是githubPage只能是你的用户名。 </p>
+<p>同时在本地目录装git部署的插件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span></pre></td></tr></table></figure>
+
+<h3 id="7"><a href="#7" class="headerlink" title="7."></a>7.</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">start _config.yml</span></pre></td></tr></table></figure>
+
+<p>用记事本打开修改最后的Deployment</p>
+<blockquote>
+<p>deploy:</p>
+</blockquote>
+<blockquote>
+<p> type: git</p>
+</blockquote>
+<blockquote>
+<p> repo: 新建的repo地址</p>
+</blockquote>
+<blockquote>
+<p> branch: master</p>
+</blockquote>
+<h3 id="8-部署到远端"><a href="#8-部署到远端" class="headerlink" title="8.部署到远端"></a>8.部署到远端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">hexo d</span></pre></td></tr></table></figure>
+
+<p><em>本人在这里报错了</em></p>
+<p>fatal: unable to auto-detect email address (got ‘Just4@DESKTOP-9KJLD70.(none)’)</p>
+<p>error: src refspec HEAD does not match any</p>
+<p>error: failed to push some refs to ‘git@github.com:Keviiiiin/Keviiiiin.github.io.git’</p>
+<p>FATAL Something’s wrong. Maybe you can find the solution here: <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">https://hexo.io/docs/troubleshooting.html</a></p>
+<p>Error: Spawn failed</p>
+<p>at ChildProcess.&lt;anonymous&gt;<br>(D:\iccBlog\hexo\node_modules\<a href="mailto:_hexo-util@1.6.1" target="_blank" rel="noopener">_hexo-util@1.6.1</a>@hexo-util\lib\spawn.js:51:21)</p>
+<p>at ChildProcess.emit (events.js:210:5)</p>
+<p>at ChildProcess.cp.emit<br>(D:\iccBlog\hexo\node_modules\<a href="mailto:_cross-spawn@7.0.1" target="_blank" rel="noopener">_cross-spawn@7.0.1</a>@cross-spawn\lib\enoent.js:34:29)</p>
+<p>at Process.ChildProcess._handle.onexit (internal/child_process.js:272:12)</p>
+<h3 id="后来发现好像是自己这台电脑没有部署ssh-key导致的"><a href="#后来发现好像是自己这台电脑没有部署ssh-key导致的" class="headerlink" title="后来发现好像是自己这台电脑没有部署ssh key导致的"></a>后来发现好像是自己这台电脑没有部署ssh key导致的</h3><p>感谢<a href="https://www.cnblogs.com/chuangshaogreat/p/8698625.html" target="_blank" rel="noopener">https://www.cnblogs.com/chuangshaogreat/p/8698625.html</a></p>
+<h1 id="开吃！"><a href="#开吃！" class="headerlink" title="开吃！"></a>开吃！</h1><p>写一篇新的博客只需要</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">hexo new &quot;Title&quot;</span></pre></td></tr></table></figure>
+
+<p>然后直接编辑.md就行啦</p>
+<p>出现啥问题可以素质三连﻿ε≡٩(๑&gt;₃&lt;)۶ </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">hexo clean</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">hexo g</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">hexo s</span></pre></td></tr></table></figure>
+
+<hr>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/12/02/Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
